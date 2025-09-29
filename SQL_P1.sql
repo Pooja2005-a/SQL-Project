@@ -1,13 +1,23 @@
-SELECT current_database();
+-- SQL Retail Sales Analysis - P1
+CREATE DATABASE sql_project_p2;
 
-SELECT table_schema, table_name 
-FROM information_schema.tables 
-WHERE table_schema='public';
 
-SELECT column_name, data_type 
-FROM information_schema.columns 
-WHERE table_name='retail_sales'
-ORDER BY ordinal_position;
+-- Create TABLE
+DROP TABLE IF EXISTS retail_sales;
+CREATE TABLE retail_sales
+            (
+                transaction_id INT PRIMARY KEY,	
+                sale_date DATE,	 
+                sale_time TIME,	
+                customer_id	INT,
+                gender	VARCHAR(15),
+                age	INT,
+                category VARCHAR(15),	
+                quantity	INT,
+                price_per_unit FLOAT,	
+                cogs	FLOAT,
+                total_sale FLOAT
+            );
 
 SELECT COUNT(*) FROM public.retail_sales;
 
@@ -129,4 +139,5 @@ OR
  WHERE RANK=1
   -- ORDER BY 1,2,3 DESC
    
+
  
